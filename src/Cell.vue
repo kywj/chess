@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ n }}
     <div class="cell" id="app" v-on:click="onClickSelf">
       <template v-if="a">{{ text }}</template>
       <template v-else></template>

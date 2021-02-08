@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <div>n 的值为 {{ n }}</div>
-    <div class="row">
-      <Cell @click="onClickCell(0, $event)" :n="n" />
-      <Cell @click="onClickCell(1, $event)" :n="n" />
-      <Cell @click="onClickCell(2, $event)" :n="n" />
+  <div class="wrapper">
+    <div>第 {{ n }} 手</div>
+    <div class="chess">
+      <div class="row">
+        <Cell @click="onClickCell(0, $event)" :n="n" />
+        <Cell @click="onClickCell(1, $event)" :n="n" />
+        <Cell @click="onClickCell(2, $event)" :n="n" />
+      </div>
+      <div class="row">
+        <Cell @click="onClickCell(3, $event)" :n="n" />
+        <Cell @click="onClickCell(4, $event)" :n="n" />
+        <Cell @click="onClickCell(5, $event)" :n="n" />
+      </div>
+      <div class="row">
+        <Cell @click="onClickCell(6, $event)" :n="n" />
+        <Cell @click="onClickCell(7, $event)" :n="n" />
+        <Cell @click="onClickCell(8, $event)" :n="n" />
+      </div>
     </div>
-    <div class="row">
-      <Cell @click="onClickCell(3, $event)" :n="n" />
-      <Cell @click="onClickCell(4, $event)" :n="n" />
-      <Cell @click="onClickCell(5, $event)" :n="n" />
-    </div>
-    <div class="row">
-      <Cell @click="onClickCell(6, $event)" :n="n" />
-      <Cell @click="onClickCell(7, $event)" :n="n" />
-      <Cell @click="onClickCell(8, $event)" :n="n" />
-    </div>
-    <div>{{ map }}</div>
-    <div>{{ result }}</div>
+    <div>结果：{{ result === null ? "胜负未分" : `胜方为${result}` }}</div>
   </div>
 </template>
 
@@ -33,7 +34,7 @@ export default {
         [null, null, null],
         [null, null, null],
       ],
-      result: false,
+      result: null,
     };
   },
   methods: {
@@ -85,5 +86,11 @@ export default {
 <style scoped>
 .row {
   display: flex;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 </style>
