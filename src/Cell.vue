@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="cell" id="app" v-on:click="a = true">
+    {{ n }}
+    <div class="cell" id="app" v-on:click="onClickSelf">
       <template v-if="a">{{ text }}</template>
       <template v-else></template>
     </div>
@@ -9,8 +10,17 @@
 
 <script>
 export default {
+  props: ["n"],
   data() {
-    return { a: false, text: "o" };
+    return { a: false, text: "" };
+  },
+  methods: {
+    onClickSelf() {
+      if (this.text !== "") return;
+      this.a = true;
+      this.text = this.n % 2 === 0 ? "x" : "o";
+      this.$emit("click");
+    },
   },
 };
 </script>
