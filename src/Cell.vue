@@ -19,7 +19,7 @@ export default {
       if (this.text !== "") return;
       this.a = true;
       this.text = this.n % 2 === 0 ? "x" : "o";
-      this.$emit("click");
+      this.$emit("click", this.text);
     },
   },
 };
